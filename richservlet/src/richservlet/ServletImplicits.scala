@@ -13,8 +13,10 @@ object ServletImplicits {
         def getParameterOrNone(key: String): Option[String] = getParameterOrElse(key, None)
         			
         def getParameterOrElse(key: String, default: Option[String]): Option[String] = {
+
             val v = req.getParameter(key)
+            
             if (v == null) default else Some(v)
-		}	
+        }	
     }
 }
